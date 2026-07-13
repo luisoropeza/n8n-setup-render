@@ -36,9 +36,16 @@ services:
 
       - key: NODE_OPTIONS
         value: "--max-old-space-size=350"
-      
-      - key: N8N_DISABLE_PRODUCTION_MAIN_PROCESS
-        value: "true"
+
+      - key: N8N_RUNNERS_GRANT_TOKEN_TTL
+        value: "120"
+
+      - key: N8N_PROTOCOL
+        value: https
+      - key: N8N_HOST
+        sync: false
+      - key: WEBHOOK_URL
+        value: https://${N8N_HOST}/
       
       # These automatically populate connection details 
       # for the Render Postgres database defined below
